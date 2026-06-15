@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinySteps | Premium Childcare & Family Guides</title>
+    <style>
+        :root {
+            --primary: #6C5CE7;
+            --primary-light: #A29BFE;
+            --accent: #FF7675;
+            --text: #2D3436;
+            --bg: #F9F9FB;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--card-bg);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #636E72;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            background: #EEECFB;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--primary-light);
+        }
+
+        .how-it-works h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .step-num {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-card p {
+            font-size: 0.85rem;
+            color: #636E72;
+        }
+
+        /* Guides Grid */
+        .grid-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem 2rem;
+        }
+
+        .grid-title {
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .guide-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid #EEDFDE;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(108, 92, 231, 0.1);
+        }
+
+        .card-cover {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .card-cover.alt {
+            background: linear-gradient(135deg, #FAB1A0, var(--accent));
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-content h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .card-content p {
+            color: #636E72;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .download-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background: #5649C0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #B2BEC3;
+            font-size: 0.9rem;
+            border-top: 1px solid #EEDFDE;
+            background: var(--card-bg);
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .steps { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">TinySteps<span></span></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Practical Resources for Growing Families</h1>
+        <p>Download our expertly curated, comprehensive PDF guides to navigate early childhood development, daily routines, and childcare planning with confidence.</p>
+        
+        <!-- Explanation of the Content Locker -->
+        <div class="how-it-works">
+            <h2>How to Access Your Free Guides</h2>
+            <p style="font-size: 0.95rem; color: var(--text); margin-bottom: 0;">To keep these premium resources 100% free, we partner with sponsors. Unlocking your download takes less than 60 seconds:</p>
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <h3>Click Download</h3>
+                    <p>Select any guide below to open the secure access panel.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <h3>Complete 1 Task</h3>
+                    <p>Fill out a quick family-friendly survey or offer from our partners.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <h3>Instant Access</h3>
+                    <p>Your PDF will unlock and download automatically once verified.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="grid-container">
+        <h2 class="grid-title">Available PDF Guides</h2>
+        <div class="guides-grid">
+
+            <!-- Guide 1 -->
+            <div class="guide-card">
+                <div class="card-cover">🍼</div>
+                <div class="card-content">
+                    <div>
+                        <h2>The Newborn Routine Blueprint</h2>
+                        <p>Master sleep schedules, feeding windows, and gentle transitions during the critical first 12 weeks.</p>
+                    </div>
+                    <a class="download-btn" href="https://playabledownload.com/1900541">Download Free PDF</a>
+                </div>
+            </div>
+
+            <!-- Guide 2 -->
+            <div class="guide-card">
+                <div class="card-cover alt">🧸</div>
+                <div class="card-content">
+                    <div>
+                        <h2>Childcare Checklist & Planner</h2>
+                        <p>Essential interview questions, safety standards, and vetting templates to find the perfect daycare or nanny.</p>
+                    </div>
+                    <button class="download-btn" onclick="openLocker()">Download Free PDF</button>
+                </div>
+            </div>
+
+            <!-- Guide 3 -->
+            <div class="guide-card">
+                <div class="card-cover">🎨</div>
+                <div class="card-content">
+                    <div>
+                        <h2>Early Learning Activity Vault</h2>
+                        <p>Over 50 low-prep, sensory-rich development games designed for toddlers aged 1 to 3 years.</p>
+                    </div>
+                    <button class="download-btn" onclick="openLocker()">Download Free PDF</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TinySteps Resources. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openLocker() {
+            // Replace the alert below with your actual CPA Content Locker JavaScript invocation code
+            // Example: call_locker_function();
+            alert("Your content locker code will trigger here to show the verification offers!");
+        }
+    </script>
+</body>
+</html>
